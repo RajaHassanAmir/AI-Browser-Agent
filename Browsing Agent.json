@@ -1,0 +1,92 @@
+{
+  "name": "Browsing Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "sendTo": "rajahassanamir3@gmail.com",
+        "subject": "Browsing Done Sir.",
+        "message": "=Results of your Desired Task: {{ $json.body.summary }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "5c812ec8-1880-47b0-a2f4-791232fe2033",
+      "name": "Send a message",
+      "webhookId": "09b822ad-9de5-43e6-9c8a-8abfeb878500",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Whreaca0h6wjd1AI",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7,
+              "triggerAtMinute": 1
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -288,
+        0
+      ],
+      "id": "0a50b7f0-be68-4006-933d-0982a984173e",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "68e582c6-d3f7-4976-9c31-db5599ee2748",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e8c5095c-b75b-4b93-ac6b-cdce87aeeedd",
+      "name": "Webhook1",
+      "webhookId": "68e582c6-d3f7-4976-9c31-db5599ee2748"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "f3e4f226-573f-4ded-a16a-c6e59630056d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "02e0a81e75e987b755138f90563d68c964b2341325186ee6f7733d91350a88b6"
+  },
+  "nodeGroups": [],
+  "id": "0BZ2z50RtwGg56c5",
+  "tags": []
+}
