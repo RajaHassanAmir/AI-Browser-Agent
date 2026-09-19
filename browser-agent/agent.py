@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from browser_use import Agent, ChatGoogle, Browser
 
 load_dotenv()
-WEBHOOK_URL = "https://hassanamir0.app.n8n.cloud/webhook-test/68e582c6-d3f7-4976-9c31-db5599ee2748"
+WEBHOOK_URL = "Your Webhook URL if u want to connect it to your workflow for notifications."
 INTERVAL_SECONDS = 86400  # Runs every 24 hours
 
 async def run_agent_job():
